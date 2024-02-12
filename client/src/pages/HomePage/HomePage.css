@@ -1,1 +1,16 @@
-
+.homePageContent{
+    width: 60%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 2;
+    text-align: center;
+    align-items: center;
+}
+@media screen and (max-width: 600px) {
+    .content{
+        width: 100%;
+    }
+    .homePageContent{
+        width: 80%;
+    }
+  }

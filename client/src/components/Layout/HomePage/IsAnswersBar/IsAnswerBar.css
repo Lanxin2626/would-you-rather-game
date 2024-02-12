@@ -1,0 +1,17 @@
+.isAnswered {
+    margin: 5%;
+    padding: 5%;
+    gap: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:lightslategray;
+    font-size: 1.5rem;
+    border-bottom: dashed;
+    border-color: lightgray;
+}
+
+.barLink.active{
+    color: hsl(177, 70%, 41%);
+}

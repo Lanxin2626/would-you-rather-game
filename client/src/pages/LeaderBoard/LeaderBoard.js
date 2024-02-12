@@ -4,10 +4,12 @@ import NavBar from '../../components/Common/NavBar'
 
 const LeaderBoard = () => {
   return (
-    <div>
+    <div className='container'>
       <NavBar/>
+      <div className='content'>
       Leaderboard
       <LeaderBoardList/>
+      </div>
     </div>
   )
 }

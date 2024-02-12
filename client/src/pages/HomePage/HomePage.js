@@ -5,12 +5,14 @@ import NavBar from '../../components/Common/NavBar'
 import './HomePage.css'
 
 const HomePage = () => {
-  return (        
+  return (
     <div className='container'>
-      <NavBar/>
-      <div className='home-page-content'>
-      <IsAnswerBar/>
-      <QuestionsList/>
+      <NavBar />
+      <div className='content'>
+        <div className='homePageContent'>
+          <IsAnswerBar />
+          <QuestionsList />
+        </div>
       </div>
     </div>
   )

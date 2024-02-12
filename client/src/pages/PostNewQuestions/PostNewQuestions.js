@@ -4,10 +4,12 @@ import NavBar from '../../components/Common/NavBar'
 
 const PostNewQuestions = () => {
   return (
-    <div>
+    <div className='container'>
       <NavBar/>
+      <div className='content'>
       PostNewQuestions
       <NewPoll/>
+      </div>
     </div>
   )
 }
