@@ -1,12 +1,12 @@
 .homePageContent{
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     display: grid;
     grid-template-rows: 2;
     text-align: center;
     align-items: center;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
     .content{
         width: 100%;
     }
