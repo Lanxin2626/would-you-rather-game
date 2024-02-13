@@ -1,14 +1,16 @@
 import React from 'react'
 import NewPoll from '../../components/Layout/PostNewQuestions/NewPoll/NewPoll'
 import NavBar from '../../components/Common/NavBar'
+import './PostNewQuestion.css'
 
 const PostNewQuestions = () => {
   return (
     <div className='container'>
-      <NavBar/>
+      <NavBar />
       <div className='content'>
-      PostNewQuestions
-      <NewPoll/>
+        <div className='newPollPage'>
+          <NewPoll />
+        </div>
       </div>
     </div>
   )

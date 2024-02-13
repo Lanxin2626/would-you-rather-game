@@ -6,11 +6,13 @@
     text-align: center;
     align-items: center;
 }
-@media screen and (max-width: 1024px) {
-    .content{
-        width: 100%;
-    }
+@media screen and (max-width: 1200px) {
     .homePageContent{
         width: 80%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .homePageContent{
+        width: 100%;
     }
   }
