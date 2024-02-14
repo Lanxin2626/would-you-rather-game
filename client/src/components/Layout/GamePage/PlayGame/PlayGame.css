@@ -1,0 +1,100 @@
+.playGamePage{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid goldenrod;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    padding: 5%;
+    border-radius: 10px;
+}
+.pollTitle{
+    font-size: 2rem;
+    color: #333;
+}
+.choicesGroup{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.choicesGroup .or{
+    grid-column: 3/4;
+    color: goldenrod;
+    font-size: 2rem;
+
+}
+.choicesGroup .choiceOne{
+    grid-column: 1/2;
+    background-color: tomato;
+    padding:20% 30%;
+    margin-top: 20%;
+    overflow: auto;
+    width: 120%;
+    height: 200px;
+    margin-right: 0;
+    border-radius: 8px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    cursor: pointer; 
+
+}
+.choicesGroup .choiceTwo{
+    grid-column: 4/5;
+    background-color:dodgerblue;
+    padding:20% 30%;
+    margin-top: 20%;
+    overflow: auto;
+    width: 120%;
+    height: 200px;
+    border-radius: 8px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.choicesGroup .choiceOne:hover{
+    transform: translateY(-10%);
+}
+.choicesGroup .choiceTwo:hover{
+    transform: translateY(-10%);
+}
+@media screen and (max-width: 1100px){
+    .playGamePage{
+        margin-top: 10%;
+    }
+
+}
+@media screen and (max-width: 768px){
+    .playGamePage{
+        margin-top: 12%;
+    }
+    .choicesGroup{
+        font-size: 1rem;
+    }
+
+}
+@media screen and (max-width: 600px){
+    .playGamePage{
+        margin-top: 20%;
+    }
+    .choicesGroup .choiceOne:hover{
+        transform: translateY(-5%);
+    }
+    .choicesGroup .choiceTwo:hover{
+        transform: translateY(-5%);
+    }
+
+}
+@media screen and (max-width: 400px){
+    .playGamePage{
+        margin-top: 30%;
+    }
+}
