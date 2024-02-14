@@ -28,10 +28,10 @@ function App() {
         <Route path='/leaderboard'>
           <LeaderBoard/>
         </Route>
-        <Route path='/LoginPage'>
+        <Route path='/loginPage'>
           <LoginPage/>
         </Route>
-        <Route path='/RegisterPage'>
+        <Route path='/registerPage'>
           <RegisterPage/>
         </Route>
         <Route path='/404'>
