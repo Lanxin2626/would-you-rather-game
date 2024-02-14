@@ -1,14 +1,16 @@
 import React from 'react'
 import LeaderBoardList from '../../components/Layout/LeaderBoard/LeaderBoardList/LeaderBoardList'
 import NavBar from '../../components/Common/NavBar'
+import './LeaderBoard.css'
 
 const LeaderBoard = () => {
   return (
     <div className='container'>
-      <NavBar/>
+      <NavBar />
       <div className='content'>
-      Leaderboard
-      <LeaderBoardList/>
+        <div className='LeaderBoard'>
+          <LeaderBoardList/>
+        </div>
       </div>
     </div>
   )

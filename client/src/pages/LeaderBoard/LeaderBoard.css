@@ -1,0 +1,7 @@
+.LeaderBoard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:5% ;
+    width: 100%;
+}

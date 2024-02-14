@@ -9,7 +9,7 @@ const UserProfileArea = () => {
     <div className='UserProfileArea'> 
       <div className='profileImage'>
       <Link to="#">
-      <img  src={catImage}/>
+      <img  src={catImage} title='UserName: Samba'/>
       </Link>
       </div>
       <input className='btn Logout' type='button' value='Logout'/>
