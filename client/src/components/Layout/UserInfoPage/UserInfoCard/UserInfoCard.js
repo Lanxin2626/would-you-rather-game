@@ -7,24 +7,24 @@ const UserInfoCard = () => {
         <div className='UserInfoCard'>
             <div className='avatar-container'>
                 <img src={carImage} className='avatar-container-image'/>
-                <button>upload</button>
+                <button className='btn upload'>+</button>
             </div>
             <div className='userInformation'>
-                <h4>UserId: xxxxx</h4>
-                <h4>UserName: xxxxx</h4>
+                <h2>UserId: <span>xxx</span></h2>
+                <h4>UserName: <span>xxx</span></h4>
                 <div className='passwordRow'>
                     <form>
                         <h4>Password:</h4>
-                        <input type='password' />
-                        <input type='submit' value={'submit'}/>
+                        <input type='password' className='password'/>
+                        <input type='submit' className='btn change' value={'change'}/>
                     </form>
                 </div>
             </div>
             <div className='userScoreCondition'>
-                <h4>Score: x</h4>
-                <h4>Numberof Answered Question: y</h4>
-                <h4>Number of Created Question: Z</h4>
-                <h3>UserRank: No.1</h3>
+                <h3>Score: <span>x</span></h3>
+                <h4>Number of Answered Question: <span>x</span></h4>
+                <h4>Number of Created Question: <span>x</span></h4>
+                <h3>UserRank: <span>No.1</span></h3>
             </div>
         </div>
     )

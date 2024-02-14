@@ -7,7 +7,7 @@ const LeaderBoardUser = (props) => {
     <div className={props.leaderBoardNo}>
       <div className='LeaderBoardUser'>
         <h4>User Name</h4>
-        <img src={catImage} className='image_LeaderBoard'/>
+        <img src={catImage} alt='' className='image_LeaderBoard'/>
         <div className='scoreConditionCard'>
           <h5>Score: X</h5>
           <h5>Answered Questions: y</h5>
