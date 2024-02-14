@@ -1,0 +1,50 @@
+.decoration{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+    width: 30%;
+    border: 3px solid #dddd;
+    padding: 2%;
+    border-radius: 10px;
+    margin-top: 2px;
+}
+.decoration img{
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    border: 3px dashed #dddd;
+    border-radius: 10px;
+    padding: 3px;
+}
+.decoration img:hover{
+    border-color: #4CAF50;
+}
+@media screen and (max-width: 1200px){
+    .decoration{
+        width: 40%;
+    }
+
+}
+@media screen and (max-width: 768px){
+    .decoration{
+        width: 50%;
+        margin-top: 5%;
+    }
+
+}
+@media screen and (max-width: 600px){
+    .decoration{
+        width: 60%;
+        margin-top: 8%;
+    }
+
+}
+@media screen and (max-width: 450px){
+    .decoration{
+        width: 70%;
+        margin-top: 10%;
+    }
+
+}
