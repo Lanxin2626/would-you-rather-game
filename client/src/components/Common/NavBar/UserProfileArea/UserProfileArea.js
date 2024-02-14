@@ -8,7 +8,7 @@ const UserProfileArea = () => {
   return (
     <div className='UserProfileArea'> 
       <div className='profileImage'>
-      <Link to="#">
+      <Link to="/userInfoPage">
       <img  src={catImage} title='UserName: Samba'/>
       </Link>
       </div>

@@ -1,6 +1,8 @@
 .isAnswered {
-    margin: 5%;
-    padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     gap: 10%;
     display: flex;
     justify-content: center;
@@ -19,4 +21,14 @@
 }
 .barLink.active{
     color: rgb(131, 210, 237);
+}
+@media screen and (max-width: 1100px){
+    .isAnswered{
+        padding-top: 10%;
+    }
+}
+@media screen and (max-width: 768px){
+    .isAnswered{
+        padding-top: 12%;
+    }
 }

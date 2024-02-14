@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top:5% ;
     width: 100%;
+    margin-top: -3%;
+}
+@media screen and (max-width: 600px){
+    .LeaderBoard{
+        margin-top: -2%;
+    }
+    
 }
