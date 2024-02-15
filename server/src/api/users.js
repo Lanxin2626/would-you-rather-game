@@ -60,6 +60,7 @@ router.post('/login',(req,res)=>{
                     'your-secret-key',  
                     { expiresIn: '1h' } 
                   );
+                  sessionStorage.setItem('token',token);
                 res.json({ message: "Login successful", token });
             })  
         }
@@ -67,6 +68,32 @@ router.post('/login',(req,res)=>{
         res.status(401).json({ message: error.message });
     }
   });
+  function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+  
+    if (token == null) return res.sendStatus(401);
+  
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      if (err) return res.sendStatus(403);
+      req.user = user;
+      next();
+    });
+  }
+router.get('/userInfo', (req, res)=>{
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1]; 
+  
+    if (token == null) return res.sendStatus(401); 
+  
+    jwt.verify(token, secretKey, (err, decoded) => {
+      if (err) return res.sendStatus(403); 
+
+    const userId = decoded.userId;
+    const userInfo = getUserInfoById(userId);
+    res.json(userInfo)
+    });
+})
   
 
 module.exports = router;

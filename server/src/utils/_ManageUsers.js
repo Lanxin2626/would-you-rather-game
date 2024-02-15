@@ -53,8 +53,24 @@ async function validatePassword(username, password) {
       });
     });
   }
+  async function getUserInfoById(userId){
+    const users = await _getUsers();
+    return new Promise((res, rej) =>{
+      const user=users[userId];
+      console.log("getUserInfoById"+ user);
+      if(user){
+        res(user);
+      }
+      else{
+        rej (new Error('this user is not in registerUser'));
+      }
+
+    });
+  }
+
 
 module.exports = {
     createUser,
-    validatePassword
+    validatePassword,
+    getUserInfoById
 };

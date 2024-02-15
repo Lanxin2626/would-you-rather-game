@@ -13,6 +13,7 @@ import addImage from '../../../../assets/tool-Image/plus.png';
 
 const AvatarsChoiceArea = ({ setAvatarURL }) => {
   const handleAvatarChange = (event) => {
+    console.log(event.target.value);
     setAvatarURL(event.target.value);
   };
   const handleAvatarUpload = async (event) => {
@@ -29,39 +30,39 @@ const AvatarsChoiceArea = ({ setAvatarURL }) => {
 
   return (
     <div className='avatarsChoiceArea'>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={dragonImage} hidden onChange={handleAvatarChange}/>
       <img src={dragonImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={dogImage} hidden onChange={handleAvatarChange}/>
       <img src={dogImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={rabbitImage} hidden onChange={handleAvatarChange}/>
       <img src={rabbitImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={doberImage} hidden onChange={handleAvatarChange}/>
       <img src={doberImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="file" name="upload" accept="image/*" hidden onChange={handleAvatarUpload}/>
       <img src={addImage} alt='' className='avatarsUpload'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={duckImage} hidden onChange={handleAvatarChange}/>
       <img src={duckImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={pandaImage} hidden onChange={handleAvatarChange}/>
       <img src={pandaImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={penguinImage} hidden onChange={handleAvatarChange}/>
       <img src={penguinImage} alt='' className='avatarsOption'/>
       </label>
-      <label class="image-radio">
+      <label className="image-radio">
       <input type="radio" name="option" value={bearImage} hidden onChange={handleAvatarChange}/>
       <img src={bearImage} alt='' className='avatarsOption'/>
       </label>

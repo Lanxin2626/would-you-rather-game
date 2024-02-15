@@ -2,16 +2,21 @@ import React from 'react'
 import './LoginForm.css'
 import { login } from '../../../../services/usersService';
 import {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory(); 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const data = await login(username, password);
       console.log('Login successful:', data);
+      history.push('/');
+      
     } catch (error) {
       console.error('Login error:', error);
+      alert('Login error:'+ error);
     }
   };
   return (
@@ -28,7 +33,7 @@ const LoginForm = () => {
         <div className='loginForm_Link'>
         <input className='loginForm_Submit'type='submit' value={'SUBMIT'}/><br></br>
         <a href='#'> Forget your password? </a>
-        <a href='#'> register </a>
+        <a href='/registerPage'> register </a>
         </div>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { registerUser } from '../../services/usersService';
 import AvatarsChoiceArea from '../../components/Layout/RegisterPage/AvatarsChoiceArea/AvatarsChoiceArea'
 import RegisterInfoForm from '../../components/Layout/RegisterPage/RegisterUserInformation/RegisterInfoForm'
 import './RegisterPage.css'
+import originAvatar from '../../assets/Avatars-upload/cat.png'
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,14 +15,21 @@ const RegisterPage = () => {
     e.preventDefault();
     // 调用后端 API 注册用户
     try {
+      console.log(avatarURL);
       if(avatarURL==='')
       {
-        setAvatarURL('../../../../assets/Avatars-upload/cat.png');
+        //setAvatarURL('../../../../assets/Avatars-upload/cat.png');
+        await registerUser(username, password, avatarURL===''? originAvatar: avatarURL);
+        history.push('/loginPage');
       }
-      await registerUser(username, password, avatarURL);
-      history.push('/loginPage');
+      else{
+        await registerUser(username, password, avatarURL);
+        history.push('/loginPage');
+      }
+
     } catch (error) {
       console.error('Registration failed:', error);
+      alert('Registration failed: '+ error);
     }
   };
 

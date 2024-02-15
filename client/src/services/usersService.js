@@ -1,6 +1,7 @@
 const baseUrl = 'http://localhost:3001';
 
-export const registerUser = async (username, password,avatarURL) => {
+export const registerUser = async (username, password, avatarURL) => {
+  console.log(username+" "+password+" "+avatarURL);
   const response = await fetch(`${baseUrl}/api/users/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -45,9 +46,23 @@ export const uploadAvatar = async (file) => {
         const data = await response.json();
         return data;
       } else {
-        throw new Error('Login failed');
+        throw new Error('Login failed, password is incorrect');
       }
     } catch (error) {
       throw error;
     }
   };
+  export const getUserInfo = async ()=>{
+    try {
+      const response = await fetch(`${baseUrl}/api/users/getUserInfo`,{
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${sessionStorage.getItem(token)}`
+        }
+      });
+    }catch(error){
+      throw error
+
+    }
+
+  }
