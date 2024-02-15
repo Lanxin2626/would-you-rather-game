@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 import './RegisterInfoForm.css'
 
-const RegisterInfoForm = () => {
+const RegisterInfoForm = ({username,setUsername, password, setPassword}) => {
+  
   return (
     <div className='registerInfoForm'>
-      <form action='#'>
+      <form>
         <div className='registerTitle'>
         <h2>Register Form</h2><br></br>
         </div>
         <div className='registerInputText'>
         <label>User Name   </label>
-        <input className='inputText' type='text' /><br></br>
+        <input className='inputText' type='text' value={username} 
+        onChange={(e) => setUsername(e.target.value)} required /><br></br>
         <label>Password   </label>
-        <input className='inputText' type='password' /><br></br>
+        <input className='inputText' type='password' value={password}
+        onChange={(e) => setPassword(e.target.value)} required/><br></br>
         <label>Repeat your password  </label>
-        <input className='inputText' type='password' /><br></br>
-        </div>
-        <div className='registerButton'>
-        <input type="submit" className='inputText'value={'SUBMIT'}/>
+        <input className='inputText' type='password' required /><br></br>
         </div>
       </form>
     </div>

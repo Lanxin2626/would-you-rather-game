@@ -1,13 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
+import { registerUser } from '../../services/usersService';
 import AvatarsChoiceArea from '../../components/Layout/RegisterPage/AvatarsChoiceArea/AvatarsChoiceArea'
 import RegisterInfoForm from '../../components/Layout/RegisterPage/RegisterUserInformation/RegisterInfoForm'
 import './RegisterPage.css'
 const RegisterPage = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [avatarURL, setAvatarURL]=useState('');
+
+  const history = useHistory(); 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    // 调用后端 API 注册用户
+    try {
+      if(avatarURL==='')
+      {
+        setAvatarURL('../../../../assets/Avatars-upload/cat.png');
+      }
+      await registerUser(username, password, avatarURL);
+      history.push('/loginPage');
+    } catch (error) {
+      console.error('Registration failed:', error);
+    }
+  };
+
   return (
     <div className='registerPage-container'>
       <div className='registerPage'>
-        <AvatarsChoiceArea />
-        <RegisterInfoForm />
+        <AvatarsChoiceArea setAvatarURL={setAvatarURL}/>
+        <RegisterInfoForm username={username} setUsername={setUsername}
+        password={password} setPassword={setPassword} />
+        <button className='registerButton' onClick={handleRegister}>Register</button>
       </div>
     </div>
   )

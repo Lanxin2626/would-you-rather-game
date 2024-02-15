@@ -24,6 +24,18 @@
 .avatarsChoiceArea .avatarsUpload{
     border-radius: 50%;
 }
+.image-radio {
+    cursor: pointer;
+  }
+  
+  .image-radio input[type="radio"] {
+    display: none;
+  }
+ 
+  .image-radio input[type="radio"]:checked + img {
+    border: 3px solid #4CAF50;;
+  }
+  
 @media screen and (max-width: 1200px){
     .avatarsChoiceArea{
         width: 40%;
