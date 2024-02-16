@@ -1,13 +1,16 @@
 import React from 'react';
 import './QuestionCard.css'
+import { useHistory } from 'react-router-dom';
 const QuestionCard = (props) => {
 
+  const history = useHistory();
+
   const jumpToGamePage =()=>{
-    
+    history.push(`/gamePoll`, {questionId:props.questionId});
   }
 
   return (
-    <div className='questionCard' key={props.key}>
+    <div className='questionCard'>
         <div className='cardImage_poll_container'>
         <img className='cardImage_poll'src={props.question.avatarURL} alt=''/>
         </div>
@@ -16,7 +19,7 @@ const QuestionCard = (props) => {
         <p ><span>Would you rather</span><br></br>
         {props.question.optionOne.text +" or ..."}</p>
          </div>
-        <input type='button' className='button_poll'value='Answer this poll' onClick={()=>jumpToGamePage()}/>
+        <input type='button' className='button_poll'value={props.btnText} onClick={()=>jumpToGamePage()}/>
     </div>
   )
 }

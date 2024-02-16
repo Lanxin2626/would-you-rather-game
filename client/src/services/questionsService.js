@@ -18,3 +18,22 @@ export const getAllQuestions= async()=>{
         throw error;
       }
 }
+export const getQuestionById = async(questionId)=>{
+    try {
+        const response = await fetch(`${baseUrl}/api/questions/getQuestionById/${questionId}`,{
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+          }
+        });
+        if (response.ok) {
+          const data = await response.json();
+          return data;
+        } else {
+          throw new Error('Question page failed to show');
+        }  
+      }catch(error){
+        throw error;
+      }
+
+}

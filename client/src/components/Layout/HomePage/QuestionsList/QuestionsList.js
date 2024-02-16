@@ -12,7 +12,7 @@ const QuestionslIst = (props) => {
     <div className='questionsList' style={props.style} >
       {
         props.questionsSet.map((question)=>
-        <QuestionCard key={question.id} question={question}/>
+        <QuestionCard key={question.id} questionId={question.id} question={question} btnText={props.btnText}/>
         )
       }
     </div>

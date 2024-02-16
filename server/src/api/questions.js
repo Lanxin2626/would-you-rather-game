@@ -12,4 +12,19 @@ router.get('/getAllQuestions', async (req, res) => {
   }
 });
 
+router.get('/getQuestionById/:questionId', async (req, res) => {
+  try {
+    const questions = await _getQuestions();
+    const questionId = req.params.questionId;
+    console.log(questionId);
+    const question = questions[questionId];
+    if (question) {
+      res.json(question);
+    } else {
+      res.status(404).send('Question not found');
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 module.exports = router;
