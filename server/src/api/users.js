@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken');
 const { _getUsers } = require('../utils/_DATA');
 const multer = require('multer');
 const path = require('path');
-const {createUser} =require('../utils/_ManageUsers');
-const {validatePassword} =require('../utils/_ManageUsers');
+const {createUser,validatePassword,getUserInfoById,getLeaderBoard} =require('../utils/_ManageUsers');
 
 const router = express.Router();
 
@@ -60,7 +59,6 @@ router.post('/login',(req,res)=>{
                     'your-secret-key',  
                     { expiresIn: '1h' } 
                   );
-                  sessionStorage.setItem('token',token);
                 res.json({ message: "Login successful", token });
             })  
         }
@@ -68,19 +66,8 @@ router.post('/login',(req,res)=>{
         res.status(401).json({ message: error.message });
     }
   });
-  function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-  
-    if (token == null) return res.sendStatus(401);
-  
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-      if (err) return res.sendStatus(403);
-      req.user = user;
-      next();
-    });
-  }
-router.get('/userInfo', (req, res)=>{
+
+router.get('/getUserInfo', async (req, res)=>{
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1]; 
   
@@ -94,6 +81,21 @@ router.get('/userInfo', (req, res)=>{
     res.json(userInfo)
     });
 })
-  
+ 
+router.get('/getLeaderBoard',async (req,res)=>{
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; 
+
+  if (token == null) return res.sendStatus(401);
+
+  try {
+    const leaderBoard = await getLeaderBoard();
+    res.json(leaderBoard);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+
+})
 
 module.exports = router;

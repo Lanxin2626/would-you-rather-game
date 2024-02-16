@@ -57,12 +57,31 @@ export const uploadAvatar = async (file) => {
       const response = await fetch(`${baseUrl}/api/users/getUserInfo`,{
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${sessionStorage.getItem(token)}`
+          'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
       });
     }catch(error){
       throw error
 
+    }
+
+  }
+  export const getLeaderBoard = async () =>{
+    try{
+      const response = await fetch(`${baseUrl}/api/users/getLeaderBoard`,{
+        method:'GET',
+        headers: {
+          'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        throw new Error('Leader board fail to show');
+      }  
+    }catch(error){
+      throw error;
     }
 
   }

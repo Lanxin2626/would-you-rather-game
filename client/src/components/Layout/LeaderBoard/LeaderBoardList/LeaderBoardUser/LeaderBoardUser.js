@@ -6,12 +6,12 @@ const LeaderBoardUser = (props) => {
   return (
     <div className={props.leaderBoardNo}>
       <div className='LeaderBoardUser'>
-        <h4>User Name</h4>
+        <h4>{props.userInfo.name}</h4>
         <img src={catImage} alt='' className='image_LeaderBoard'/>
         <div className='scoreConditionCard'>
-          <h5>Score: X</h5>
-          <h5>Answered Questions: y</h5>
-          <h5>Created Question: z</h5>
+          <h5>Score: {props.userInfo.questions.length+ Object.keys(props.userInfo.answers).length}</h5>
+          <h5>Answered Questions: {props.userInfo.questions.length}</h5>
+          <h5>Created Question: {Object.keys(props.userInfo.answers).length}</h5>
         </div>
       </div>
     </div>

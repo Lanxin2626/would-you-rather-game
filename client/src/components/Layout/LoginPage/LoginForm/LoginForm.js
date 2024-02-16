@@ -12,6 +12,7 @@ const LoginForm = () => {
     try {
       const data = await login(username, password);
       console.log('Login successful:', data);
+      sessionStorage.setItem('token',data.token);
       history.push('/');
       
     } catch (error) {
