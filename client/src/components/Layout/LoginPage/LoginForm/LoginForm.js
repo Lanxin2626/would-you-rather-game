@@ -10,9 +10,9 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await login(username, password);
-      console.log('Login successful:', data);
-      sessionStorage.setItem('token',data.token);
+      const user = await login(username, password);
+      console.log('Login successful:', user);
+      sessionStorage.setItem('token',user.token);
       history.push('/');
       
     } catch (error) {

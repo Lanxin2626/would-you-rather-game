@@ -1,17 +1,22 @@
 import React from 'react';
 import './QuestionCard.css'
-const QuestionCard = () => {
+const QuestionCard = (props) => {
+
+  const jumpToGamePage =()=>{
+    
+  }
+
   return (
-    <div className='questionCard'>
+    <div className='questionCard' key={props.key}>
         <div className='cardImage_poll_container'>
-        <img className='cardImage_poll'src="/Avatars-origin/cat.png" alt=''/>
+        <img className='cardImage_poll'src={props.question.avatarURL} alt=''/>
         </div>
         <div className='question_poll'>
-        <h2 >Samba ask:</h2>
+        <h2 >{props.question.author} ask:</h2>
         <p ><span>Would you rather</span><br></br>
-         live in city or ...</p>
+        {props.question.optionOne.text +" or ..."}</p>
          </div>
-        <input type='button' className='button_poll'value='Answer this poll'/>
+        <input type='button' className='button_poll'value='Answer this poll' onClick={()=>jumpToGamePage()}/>
     </div>
   )
 }

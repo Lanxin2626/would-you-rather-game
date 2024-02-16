@@ -5,6 +5,7 @@
     grid-template-rows: 2;
     text-align: center;
     align-items: center;
+    margin-left: 15%;
 }
 @media screen and (max-width: 1200px) {
     .homePageContent{
@@ -14,5 +15,6 @@
   @media screen and (max-width: 768px) {
     .homePageContent{
         width: 100%;
+        margin-left: 5%;
     }
   }

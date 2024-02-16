@@ -11,6 +11,8 @@
     width: 75%;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     font-family: Arial, sans-serif; 
+    margin-left: 8%;
+    margin-bottom: 8%;
 
 }
 .cardImage_poll_container{
@@ -92,5 +94,6 @@
   @media screen and (max-width: 768px) {
     .questionCard{
         width: 90%;
+        margin-left: 4%;
     }
   }

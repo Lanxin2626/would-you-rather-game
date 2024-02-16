@@ -20,7 +20,7 @@ const UserProfileArea = () => {
     <div className='UserProfileArea'> 
       <div className='profileImage'>
       <Link to="/userInfoPage" onClick={()=>handleLinkClick('/userInfoPage',getUserInfo)} >
-      <img  src="/Avatars-origin/cat.png" title='UserName: Samba'/>
+      <img  src={JSON.parse(sessionStorage.getItem('currentUser')).avatarURL} title={JSON.parse(sessionStorage.getItem('currentUser')).name}/>
       </Link>
       </div>
       <input className='btn Logout' type='button' value='Logout'/>

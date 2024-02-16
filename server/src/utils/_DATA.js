@@ -3,6 +3,7 @@ let users = {
     id: 'sarahedo',
     name: 'Sarah Edo',
     avatarURL:'/Avatars-origin/dragon.png' ,
+    password: '$2b$10$QGJFj7hsUhpJiwa2b4UvlOb00pMTk48ceUFhi7fozoFlwWahLNrSO',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -15,6 +16,7 @@ let users = {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
     avatarURL:'/Avatars-origin/dog.png' ,
+    password: '$2b$10$QGJFj7hsUhpJiwa2b4UvlOb00pMTk48ceUFhi7fozoFlwWahLNrSO',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -25,6 +27,7 @@ let users = {
     id: 'johndoe',
     name: 'John Doe',
     avatarURL: '/Avatars-origin/panda.png',
+    password: '$2b$10$QGJFj7hsUhpJiwa2b4UvlOb00pMTk48ceUFhi7fozoFlwWahLNrSO',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -38,6 +41,7 @@ let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
     author: 'sarahedo',
+    avatarURL:'/Avatars-origin/dragon.png',
     timestamp: 1467166872634,
     optionOne: {
       votes: ['sarahedo'],
@@ -51,6 +55,7 @@ let questions = {
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
     author: 'johndoe',
+    avatarURL: '/Avatars-origin/panda.png',
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
@@ -64,6 +69,7 @@ let questions = {
   "am8ehyc8byjqgar0jgpub9": {
     id: 'am8ehyc8byjqgar0jgpub9',
     author: 'sarahedo',
+    avatarURL:'/Avatars-origin/dragon.png',
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
@@ -77,6 +83,7 @@ let questions = {
   "loxhs1bqm25b708cmbf3g": {
     id: 'loxhs1bqm25b708cmbf3g',
     author: 'tylermcginnis',
+    avatarURL:'/Avatars-origin/dog.png' ,
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
@@ -90,6 +97,7 @@ let questions = {
   "vthrdm985a262al8qx3do": {
     id: 'vthrdm985a262al8qx3do',
     author: 'tylermcginnis',
+    avatarURL:'/Avatars-origin/dog.png' ,
     timestamp: 1489579767190,
     optionOne: {
       votes: ['tylermcginnis'],
@@ -103,6 +111,7 @@ let questions = {
   "xj352vofupe1dqz9emx13r": {
     id: 'xj352vofupe1dqz9emx13r',
     author: 'johndoe',
+    avatarURL: '/Avatars-origin/panda.png',
     timestamp: 1493579767190,
     optionOne: {
       votes: ['johndoe'],
@@ -139,11 +148,12 @@ function _getQuestions () {
   })
 }
 
-function formatQuestion ({ optionOneText, optionTwoText, author }) {
+function formatQuestion ({ optionOneText, optionTwoText, author, authorAvatar}) {
   return {
     id: generateUID(),
     timestamp: Date.now(),
     author,
+    avatarURL:authorAvatar,
     optionOne: {
       votes: [],
       text: optionOneText,

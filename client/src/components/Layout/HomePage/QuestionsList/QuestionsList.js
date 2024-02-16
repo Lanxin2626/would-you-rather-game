@@ -1,16 +1,20 @@
-import React,{useState}from 'react'
+import React from 'react'
 import QuestionCard from './QuestionCard'
 import './QuestionList.css'
 
-const QuestionslIst = () => {
-  //let answeredQuestions=3;
-  //let unAnsweredQuestions=4;
+const QuestionslIst = (props) => {
+  if(props.questionsSet.length===0)
+  {
+    return <div className='questionsList'></div>
+  }
+
   return (
-    <div className='questionsList'>
-      <QuestionCard/>
-      <QuestionCard/>
-      <QuestionCard/>
-      <QuestionCard/>
+    <div className='questionsList' style={props.style} >
+      {
+        props.questionsSet.map((question)=>
+        <QuestionCard key={question.id} question={question}/>
+        )
+      }
     </div>
   )
 }

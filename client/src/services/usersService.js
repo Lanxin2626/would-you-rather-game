@@ -62,7 +62,6 @@ export const uploadAvatar = async (file) => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("Line 65 "+ data)
         return data;
       } else {
         throw new Error('userInformation page fail to show');

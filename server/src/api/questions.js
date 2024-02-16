@@ -3,7 +3,7 @@ const { _getQuestions } = require('../utils/_DATA');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/getAllQuestions', async (req, res) => {
   try {
     const questions = await _getQuestions();
     res.json(questions);

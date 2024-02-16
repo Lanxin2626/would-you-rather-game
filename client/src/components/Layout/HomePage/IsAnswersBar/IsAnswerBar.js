@@ -1,14 +1,20 @@
 import React from 'react'
 import './IsAnswerBar.css'
 
-const IsAnswerBar = () => {
+const IsAnswerBar = (props) => {
 
-  const liGroup= ['Unanswered','Answered'];
+  const handleTabClick = (tab) => {
+    props.setIsAnswer(tab);
+    console.log("New isAnswer value:", tab);
+  };
+
   return (
     <div className='isAnswerBar'>
       <ul className='isAnswered'>
-        <li className='barLink active'>Unanswered</li>
-        <li className='barLink '>Answered</li>
+        <li className={`barLink ${props.isAnswer === false ? 'active' : ''}`}
+        onClick={() => handleTabClick(false)}>Unanswered</li>
+        <li className={`barLink ${props.isAnswer === true ? 'active' : ''}`}
+        onClick={() => handleTabClick(true)}>Answered</li>
       </ul>
     </div>
   )
