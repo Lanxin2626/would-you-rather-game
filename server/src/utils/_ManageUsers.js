@@ -36,7 +36,7 @@ async function validatePassword(username, password) {
   const users = await _getUsers();
     return new Promise((res, rej) => {
       const user = users[username];
-      //console.log(users);
+      console.log(users);
       if (!user) {
         return rej(new Error('User not found'));
       }
@@ -56,22 +56,18 @@ async function validatePassword(username, password) {
 
   async function getUserInfoById(userId){
     const users = await _getUsers();
-    return new Promise((res, rej) =>{
-      users.sort((user1, user2) => 
-      user1.questions.length+ Object.keys(user1.answers).length 
-      - user2.questions.length+ Object.keys(user2.answers).length);
-
-      const user=users[userId];
-      user.rank=Object.keys(users).indexOf(user);
-      console.log("getUserInfoById"+ user);
-      if(user){
-        res(user);
-      }
-      else{
-        rej (new Error('this user is not in registerUser'));
-      }
-
+    const usersArray = Object.values(users);
+    usersArray.sort((user1, user2) => {
+      const user1Activity = user1.questions.length + Object.keys(user1.answers).length;
+      const user2Activity = user2.questions.length + Object.keys(user2.answers).length;
+      return user2Activity - user1Activity;
     });
+
+      const user=usersArray.find(user => user.id === userId);
+      user.rank=usersArray.indexOf(user)+ 1;
+      //console.log("getUserInfoById "+ user);
+      return user;
+
   }
 
   async function getLeaderBoard(){

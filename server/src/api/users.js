@@ -19,7 +19,7 @@ router.get('/users', async (req, res) => {
 router.post('/register', async (req, res) => {
     try {
       const { username, password, avatarURL} = req.body;
-      const newUser = await createUser({ id: username, username, password, avatarURL});
+      const newUser = await createUser({ id: username.toLowerCase(), username, password, avatarURL});
       res.status(201).json(newUser);
     } catch (error) {
       res.status(400).send(error.message);
@@ -73,12 +73,18 @@ router.get('/getUserInfo', async (req, res)=>{
   
     if (token == null) return res.sendStatus(401); 
   
-    jwt.verify(token, secretKey, (err, decoded) => {
+    jwt.verify(token, 'your-secret-key', async (err, decoded) => {
       if (err) return res.sendStatus(403); 
-
-    const userId = decoded.userId;
-    const userInfo = getUserInfoById(userId);
-    res.json(userInfo)
+    try{
+      const userId = decoded.userId;
+      const userInfo = await getUserInfoById(userId);
+      console.log(userId);
+      console.log(userInfo);
+      res.json(userInfo);
+    }catch{
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
     });
 })
  

@@ -7,7 +7,9 @@ const LeaderBoardList = () => {
   const location = useLocation();
   const data = location.state?.data;
   if (!data) {
-    return <div>Loading leaderboard...</div>
+    return <div className='LeaderBoardList'>
+      <h4>Loading leaderboard...</h4>
+      </div>
   }
   return (
     <div className='LeaderBoardList'>

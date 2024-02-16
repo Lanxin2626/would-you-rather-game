@@ -60,9 +60,15 @@ export const uploadAvatar = async (file) => {
           'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
       });
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Line 65 "+ data)
+        return data;
+      } else {
+        throw new Error('userInformation page fail to show');
+      }  
     }catch(error){
-      throw error
-
+      throw error;
     }
 
   }

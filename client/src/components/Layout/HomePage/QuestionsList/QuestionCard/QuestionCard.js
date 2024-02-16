@@ -1,11 +1,10 @@
 import React from 'react';
-import catImage from '../../../../../../src/assets/Avatars-upload/cat.png';
 import './QuestionCard.css'
 const QuestionCard = () => {
   return (
     <div className='questionCard'>
         <div className='cardImage_poll_container'>
-        <img className='cardImage_poll'src={catImage} alt=''/>
+        <img className='cardImage_poll'src="/Avatars-origin/cat.png" alt=''/>
         </div>
         <div className='question_poll'>
         <h2 >Samba ask:</h2>

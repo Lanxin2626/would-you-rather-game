@@ -4,11 +4,11 @@ import { registerUser } from '../../services/usersService';
 import AvatarsChoiceArea from '../../components/Layout/RegisterPage/AvatarsChoiceArea/AvatarsChoiceArea'
 import RegisterInfoForm from '../../components/Layout/RegisterPage/RegisterUserInformation/RegisterInfoForm'
 import './RegisterPage.css'
-import originAvatar from '../../assets/Avatars-upload/cat.png'
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [avatarURL, setAvatarURL]=useState('');
+  const originAvatar='/Avatars-origin/cat.png';
 
   const history = useHistory(); 
   const handleRegister = async (e) => {
@@ -18,7 +18,6 @@ const RegisterPage = () => {
       console.log(avatarURL);
       if(avatarURL==='')
       {
-        //setAvatarURL('../../../../assets/Avatars-upload/cat.png');
         await registerUser(username, password, avatarURL===''? originAvatar: avatarURL);
         history.push('/loginPage');
       }
