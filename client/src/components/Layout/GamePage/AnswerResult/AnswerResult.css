@@ -1,4 +1,4 @@
-.showResultPage{
+.playGamePage{
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@
 
 
 .choicesGroup .resultOne.userChoice{
-    transform: translate(1%,-10%);
+    transform: translate(-1%,-10%);
     border: 6px solid goldenrod;
 }
 .choicesGroup .resultTwo.userChoice{
@@ -63,13 +63,13 @@
 }
 
 @media screen and (max-width: 1100px){
-    .showResultPage{
+    .playGamePage{
         margin-top: 10%;
     }
 
 }
 @media screen and (max-width: 768px){
-    .showResultPage{
+    .playGamePage{
         margin-top: 12%;
     }
     .choicesGroup{
@@ -78,7 +78,7 @@
 
 }
 @media screen and (max-width: 600px){
-    .showResultPage{
+    .playGamePage{
         margin-top: 20%;
     }
     .choicesGroup .resultOne.userChoice{
@@ -92,7 +92,7 @@
 
 }
 @media screen and (max-width: 400px){
-    .showResultPage{
+    .playGamePage{
         margin-top: 30%;
     }
 }

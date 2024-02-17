@@ -191,6 +191,10 @@ function _saveQuestion (question) {
 
 function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   return new Promise((res, rej) => {
+    console.log('AuthedUser:', authedUser);
+    console.log('Question ID:', qid);
+    console.log('Answer:', answer);
+    
     setTimeout(() => {
       users = {
         ...users,

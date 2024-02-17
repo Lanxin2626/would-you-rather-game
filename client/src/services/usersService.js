@@ -1,7 +1,6 @@
 const baseUrl = 'http://localhost:3001';
 
 export const registerUser = async (username, password, avatarURL) => {
-  console.log(username+" "+password+" "+avatarURL);
   const response = await fetch(`${baseUrl}/api/users/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

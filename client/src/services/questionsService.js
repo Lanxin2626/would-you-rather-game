@@ -37,3 +37,23 @@ export const getQuestionById = async(questionId)=>{
       }
 
 }
+
+export const saveUserAnswer= async(authedUser, questionId, answer)=>{
+  try{
+    const response =await fetch(`${baseUrl}/api/questions/saveUserAnswer`,{
+      method: 'POST',
+      headers: {        
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.getItem('token')}`},
+      body: JSON.stringify({ authedUser, questionId, answer })
+    })
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error('Vote failed, sorry for that');
+    }
+  }catch(error){
+    throw error;
+  }
+}
