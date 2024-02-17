@@ -21,8 +21,7 @@ const HomePage = () => {
   
         setUnQuestionsSet(sortedQuestions.filter(question => !userInfo.answers.hasOwnProperty(question.id)));
         setAnQuestionsSet(sortedQuestions.filter(question => userInfo.answers.hasOwnProperty(question.id)));
-        sessionStorage.setItem('currentUser',JSON.stringify(userInfo));
-        console.log(JSON.stringify(sessionStorage.getItem('currentUser')));
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }

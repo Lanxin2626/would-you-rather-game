@@ -11,8 +11,8 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const user = await login(username, password);
-      console.log('Login successful:', user);
       sessionStorage.setItem('token',user.token);
+      sessionStorage.setItem('currentUser',JSON.stringify(user.user));
       history.push('/');
       
     } catch (error) {

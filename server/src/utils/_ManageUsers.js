@@ -36,6 +36,7 @@ async function validatePassword(username, password) {
   const users = await _getUsers();
     return new Promise((res, rej) => {
       const user = users[username];
+      console.log(username)
       console.log(users);
       if (!user) {
         return rej(new Error('User not found'));

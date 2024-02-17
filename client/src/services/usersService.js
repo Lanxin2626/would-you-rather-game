@@ -35,7 +35,7 @@ export const uploadAvatar = async (file) => {
     }
   };
   export const login = async (username, password) => {
-    try {
+    try {  
       const response = await fetch(`${baseUrl}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
