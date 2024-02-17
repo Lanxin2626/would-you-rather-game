@@ -1,0 +1,98 @@
+.showResultPage{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid goldenrod;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    padding: 5%;
+    border-radius: 10px;
+    padding-bottom: 10%;
+}
+.pollTitle{
+    font-size: 2rem;
+    color: #333;
+}
+.choicesGroup{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.choicesGroup .resultOne{
+    grid-column: 1/3;
+    background-color: tomato;
+    padding-top:10%;
+    margin-top: 20%;
+    overflow: auto;
+    width: 150%;
+    height: 200px;
+    margin-right: 0;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    cursor: pointer; 
+
+}
+.choicesGroup .resultTwo{
+    grid-column: 4/6;
+    background-color:dodgerblue;
+    padding-top:10%;
+    margin-top: 20%;
+    overflow: auto;
+    width: 150%;
+    height: 200px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+
+
+.choicesGroup .resultOne.userChoice{
+    transform: translate(1%,-10%);
+    border: 6px solid goldenrod;
+}
+.choicesGroup .resultTwo.userChoice{
+    transform: translate(1%,-10%);
+    border: 6px solid goldenrod;
+}
+
+@media screen and (max-width: 1100px){
+    .showResultPage{
+        margin-top: 10%;
+    }
+
+}
+@media screen and (max-width: 768px){
+    .showResultPage{
+        margin-top: 12%;
+    }
+    .choicesGroup{
+        font-size: 1rem;
+    }
+
+}
+@media screen and (max-width: 600px){
+    .showResultPage{
+        margin-top: 20%;
+    }
+    .choicesGroup .resultOne.userChoice{
+        transform: translateY(-5%);
+        border: 5px solid goldenrod;
+    }
+    .choicesGroup .resultTwo.userChoice{
+        transform: translateY(-5%);
+        border: 5px solid goldenrod;
+    }
+
+}
+@media screen and (max-width: 400px){
+    .showResultPage{
+        margin-top: 30%;
+    }
+}

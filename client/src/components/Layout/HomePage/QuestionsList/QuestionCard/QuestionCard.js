@@ -6,7 +6,7 @@ const QuestionCard = (props) => {
   const history = useHistory();
 
   const jumpToGamePage =()=>{
-    history.push(`/gamePoll`, {questionId:props.questionId});
+    history.push(`/gamePoll`, {questionId:props.questionId, isAnswered:props.isAnswered});
   }
 
   return (

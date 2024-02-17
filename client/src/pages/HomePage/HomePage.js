@@ -53,8 +53,8 @@ const HomePage = () => {
       <div className='content'>
         <div className='homePageContent'>
           <IsAnswerBar isAnswer={isAnswer} setIsAnswer={setIsAnswer}/>
-          <QuestionsList questionsSet={unQuestionsSet} style={{ display: !isAnswer ? 'block' : 'none' }} btnText={'Answer this poll'}/>
-          <QuestionsList questionsSet={anQuestionsSet} style={{ display: isAnswer ? 'block' : 'none' }} btnText={'view this poll'}/>
+          <QuestionsList questionsSet={unQuestionsSet} style={{ display: !isAnswer ? 'block' : 'none' }}isAnswered={isAnswer} btnText={'Answer this poll'}/>
+          <QuestionsList questionsSet={anQuestionsSet} style={{ display: isAnswer ? 'block' : 'none' }} isAnswered={isAnswer}btnText={'view this poll'}/>
         </div>
       </div>
     </div>

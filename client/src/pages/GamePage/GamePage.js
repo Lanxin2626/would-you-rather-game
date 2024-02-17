@@ -1,14 +1,15 @@
-import React,{useEffect, useState}from 'react'
+import React, { useEffect, useState } from 'react'
 import PlayGame from '../../components/Layout/GamePage/PlayGame/PlayGame'
+import AnswerResult from '../../components/Layout/GamePage/AnswerResult/AnswerResult'
 import NavBar from '../../components/Common/NavBar'
 import './GamePage.css'
 import { useLocation } from 'react-router-dom';
-import {getQuestionById} from '../../services/questionsService'
+import { getQuestionById } from '../../services/questionsService'
 
 
 const GamePage = () => {
   const location = useLocation();
-  const {questionId}=location.state||{};
+  const { questionId, isAnswered } = location.state || {};
 
   const [question, setQuestion] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -43,13 +44,25 @@ const GamePage = () => {
   if (!question) {
     return <div>No question data found</div>;
   }
+  if(isAnswered){
+    return(
+      <div className='contianer'>
+      <NavBar />
+      <div className='content'>
+        <div className='gamePage'>
+          <AnswerResult question={question} questionId={questionId} />
+        </div>
+      </div>
+    </div>
+    )
+  }
 
   return (
     <div className='contianer'>
       <NavBar />
       <div className='content'>
         <div className='gamePage'>
-          <PlayGame question={question}/>
+          <PlayGame question={question} questionId={questionId}/>
         </div>
       </div>
     </div>
