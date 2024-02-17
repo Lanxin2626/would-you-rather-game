@@ -8,17 +8,6 @@ const AvatarsChoiceArea = ({ setAvatarURL }) => {
     console.log(event.target.value);
     setAvatarURL(event.target.value);
   };
-  const handleAvatarUpload = async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      try {
-        const avatarURL = await uploadAvatar(file);
-        setAvatarURL(avatarURL);
-      } catch (error) {
-        console.error('Error during avatar upload:', error);
-      }
-    }
-  }
 
   return (
     <div className='avatarsChoiceArea'>
@@ -39,8 +28,8 @@ const AvatarsChoiceArea = ({ setAvatarURL }) => {
       <img src='/Avatars-origin/dober.png' alt='' className='avatarsOption'/>
       </label>
       <label className="image-radio">
-      <input type="file" name="upload" accept="image/*" hidden onChange={handleAvatarUpload}/>
-      <img src={addImage} alt='' className='avatarsUpload'/>
+      <input type="radio" name="option" value='/Avatars-origin/cat.png' hidden onChange={handleAvatarChange}/>
+      <img src='/Avatars-origin/cat.png' alt='' className='avatarsOption'/>
       </label>
       <label className="image-radio">
       <input type="radio" name="option" value='/Avatars-origin/duck.png' hidden onChange={handleAvatarChange}/>

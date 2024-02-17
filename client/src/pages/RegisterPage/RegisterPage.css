@@ -13,3 +13,13 @@
     align-items: center;
     justify-content: center; 
 }
+.registerButton{
+border: none;
+background-color: #45a049;
+width: 5%;
+height: 25px;
+color: white;
+border-radius: 3px;
+cursor: pointer;
+
+}

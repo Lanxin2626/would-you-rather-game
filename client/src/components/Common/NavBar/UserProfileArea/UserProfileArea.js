@@ -15,6 +15,10 @@ const UserProfileArea = () => {
       console.error('Error:', error);
     }
   };
+  const handleLogout =()=>{
+    sessionStorage.clear();
+    history.push('/');
+  }
 
   return (
     <div className='UserProfileArea'> 
@@ -23,7 +27,7 @@ const UserProfileArea = () => {
       <img  src={JSON.parse(sessionStorage.getItem('currentUser')).avatarURL} title={JSON.parse(sessionStorage.getItem('currentUser')).name}/>
       </Link>
       </div>
-      <input className='btn Logout' type='button' value='Logout'/>
+      <input className='btn Logout' type='button' value='Logout' onClick={handleLogout}/>
     </div>
   )
 }

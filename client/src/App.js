@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useState } from 'react';
 
 import HomePage from './pages/HomePage'
@@ -13,42 +13,39 @@ import Error404Page from './pages/Error_404Page'
 import './App.css';
 
 function App() {
+  const [token, setToken] = useState(sessionStorage.getItem('token'));
   return (
     <Router>
       <Switch>
-        <Route path='/gamePoll'>
-          <GamePage />
-        </Route>
-        <Route path="/add">
-          <PostNewQuestions />
-        </Route>
-        <Route path='/userInfoPage'>
-          <UserInfoPage />
-        </Route>
-        <Route path='/leaderboard'>
-          <LeaderBoard />
-        </Route>
+        <PrivateRoute path='/gamePoll' component={GamePage}token={token}/>
+        <PrivateRoute path="/add" component={PostNewQuestions} token={token}/>
+        <PrivateRoute path='/userInfoPage' component={UserInfoPage} token={token}/>
+        <PrivateRoute path='/leaderboard' component={LeaderBoard} token={token}/>
         <Route path='/loginPage'>
-          <LoginPage />
+          <LoginPage setToken={setToken}/>
         </Route>
-        <Route path='/registerPage'>
-          <RegisterPage />
+        <Route path='/registerPage' component={RegisterPage}/>
+        <Route path='/404' component={Error404Page}/>
+        <PrivateRoute path='/PostNewQuestions'component={PostNewQuestions} token={token}/>
+        <Route exact path="/" >
+          <LoginPage setToken={setToken}/>
         </Route>
-        <Route path='/404'>
-          <Error404Page />
-        </Route>
-        <Route path='/PostNewQuestions'>
-          <PostNewQuestions />
-        </Route>
-        <Route exact path="/">
-          <LoginPage />
-        </Route>
-        <Route exact path="/homePage">
-          <HomePage />
+        <PrivateRoute exact path="/homePage" component={HomePage} token={token}/>
+        <Route path="*">
+          <Redirect to="/login" />
         </Route>
       </Switch>
     </Router>
   );
 }
-
+function PrivateRoute({ component: Component, token, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => (
+        token ? <Component {...props} /> : <Redirect to="/loginPage" />
+      )}
+    />
+  );
+}
 export default App;

@@ -134,7 +134,6 @@ function _addUser(id, data) {
     [id]: data
   };
 }
-
 function _getUsers () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...users}), 1000)

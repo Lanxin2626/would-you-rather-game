@@ -41,6 +41,7 @@ const RegisterPage = () => {
         <RegisterInfoForm username={username} setUsername={setUsername}
         password={password} setPassword={setPassword} />
         <button className='registerButton' onClick={handleRegister}>Register</button>
+        <a href='/loginPage'className='loginForm_Link' > Login </a>
       </div>
     </div>
   )

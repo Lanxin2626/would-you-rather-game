@@ -1,9 +1,8 @@
-const { _getUsers, _addUser } = require('./_DATA.js');
+const { _getUsers, _addUser} = require('./_DATA.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 async function createUser({ id, username:name, avatarURL, password }) {
-  console.log('Line 8 '+id);
   const users = await _getUsers();
     return new Promise((res, rej) => {
         setTimeout(() => {
@@ -89,5 +88,5 @@ module.exports = {
     createUser,
     validatePassword,
     getUserInfoById,
-    getLeaderBoard
+    getLeaderBoard,
 };

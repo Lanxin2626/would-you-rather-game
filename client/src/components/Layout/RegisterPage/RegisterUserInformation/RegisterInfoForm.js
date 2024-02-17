@@ -12,12 +12,10 @@ const RegisterInfoForm = ({username,setUsername, password, setPassword}) => {
         <div className='registerInputText'>
         <label>User Name   </label>
         <input className='inputText' type='text' value={username} 
-        onChange={(e) => setUsername(e.target.value)} required /><br></br>
+        onChange={(e) => setUsername(e.target.value.replace(/[^A-Za-z0-9]/g, ''))} required /><br></br>
         <label>Password   </label>
         <input className='inputText' type='password' value={password}
         onChange={(e) => setPassword(e.target.value)} required/><br></br>
-        <label>Repeat your password  </label>
-        <input className='inputText' type='password' required /><br></br>
         </div>
       </form>
     </div>
