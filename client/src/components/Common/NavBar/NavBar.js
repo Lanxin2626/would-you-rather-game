@@ -20,7 +20,7 @@ const NavBar = () => {
     <div className='nav'>
       <ul className='nav-links'>
         <li className="nav-item linkGroup">
-          <NavLink className="nav-link" activeClassName="active" exact to="/">Home</NavLink>
+          <NavLink className="nav-link" activeClassName="active" exact to="/homePage">Home</NavLink>
         </li>
         <li className="nav-item linkGroup">
           <NavLink className="nav-link" activeClassName="active" to="/PostNewQuestions">New Poll</NavLink>

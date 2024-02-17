@@ -17,32 +17,35 @@ function App() {
     <Router>
       <Switch>
         <Route path='/gamePoll'>
-          <GamePage/>
+          <GamePage />
         </Route>
         <Route path="/add">
-          <PostNewQuestions/>
+          <PostNewQuestions />
         </Route>
         <Route path='/userInfoPage'>
-          <UserInfoPage/>
+          <UserInfoPage />
         </Route>
         <Route path='/leaderboard'>
-          <LeaderBoard/>
+          <LeaderBoard />
         </Route>
         <Route path='/loginPage'>
-          <LoginPage/>
+          <LoginPage />
         </Route>
         <Route path='/registerPage'>
-          <RegisterPage/>
+          <RegisterPage />
         </Route>
         <Route path='/404'>
-          <Error404Page/>
+          <Error404Page />
         </Route>
         <Route path='/PostNewQuestions'>
-          <PostNewQuestions/>
-        </Route>        
+          <PostNewQuestions />
+        </Route>
         <Route exact path="/">
+          <LoginPage />
+        </Route>
+        <Route exact path="/homePage">
           <HomePage />
-        </Route>     
+        </Route>
       </Switch>
     </Router>
   );

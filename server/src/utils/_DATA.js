@@ -128,12 +128,11 @@ function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
-async function _addUser(username, data) {
- 
+function _addUser(id, data) {
   users = {
     ...users,
-    [username]: data
-  }
+    [id]: data
+  };
 }
 
 function _getUsers () {

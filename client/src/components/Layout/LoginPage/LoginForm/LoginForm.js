@@ -13,7 +13,7 @@ const LoginForm = () => {
       const user = await login(username, password);
       sessionStorage.setItem('token',user.token);
       sessionStorage.setItem('currentUser',JSON.stringify(user.user));
-      history.push('/');
+      history.push('/homePage');
       
     } catch (error) {
       console.error('Login error:', error);
@@ -24,7 +24,7 @@ const LoginForm = () => {
     <div className='loginForm'>
       <form className='loginInfoForm' onSubmit={handleSubmit}>
         <div className='loginForm_UserName'>
-          <label>User Name  </label>
+          <label>User ID  </label>
           <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
         </div>
         <div className='loginForm_Password'>
