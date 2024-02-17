@@ -57,3 +57,22 @@ export const saveUserAnswer= async(authedUser, questionId, answer)=>{
     throw error;
   }
 }
+export const addQuestion= async(optionOneText, optionTwoText, author, authorAvatar)=>{
+  try{
+    const response =await fetch(`${baseUrl}/api/questions/saveQuestion`,{
+      method: 'POST',
+      headers: {        
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.getItem('token')}`},
+      body: JSON.stringify({optionOneText, optionTwoText, author, authorAvatar})
+    })
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error('Add Poll failed, sorry for that');
+    }
+  }catch(error){
+
+  }
+}

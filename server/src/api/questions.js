@@ -1,5 +1,5 @@
 const express = require('express');
-const { _getQuestions,_saveQuestionAnswer } = require('../utils/_DATA');
+const { _getQuestions,_saveQuestionAnswer,_saveQuestion } = require('../utils/_DATA');
 
 const router = express.Router();
 
@@ -34,6 +34,19 @@ router.post('/saveUserAnswer',async(req,res)=>{
       
     }
     await _saveQuestionAnswer({authedUser, qid: questionId, answer});
+    res.json({ message: 'Answer saved successfully' });
+  }catch(error){
+    res.status(500).json({ message: error.message });
+  }
+})
+
+router.post('/saveQuestion',async(req,res)=>{
+  const {optionOneText, optionTwoText, author, authorAvatar} = req.body;
+  try{
+    if (!optionOneText || !optionTwoText || !author||!authorAvatar) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+    await _saveQuestion({optionOneText, optionTwoText, author, authorAvatar});
     res.json({ message: 'Answer saved successfully' });
   }catch(error){
     res.status(500).json({ message: error.message });

@@ -166,6 +166,8 @@ function formatQuestion ({ optionOneText, optionTwoText, author, authorAvatar}) 
 
 function _saveQuestion (question) {
   return new Promise((res, rej) => {
+    console.log(question);
+    console.log(JSON.stringify(question));
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
 
@@ -190,10 +192,6 @@ function _saveQuestion (question) {
 
 function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   return new Promise((res, rej) => {
-    console.log('AuthedUser:', authedUser);
-    console.log('Question ID:', qid);
-    console.log('Answer:', answer);
-    
     setTimeout(() => {
       users = {
         ...users,
