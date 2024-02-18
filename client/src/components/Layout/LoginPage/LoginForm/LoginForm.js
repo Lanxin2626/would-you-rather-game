@@ -10,7 +10,7 @@ const LoginForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await login(username, password);
+      const user = await login(username.toLowerCase().replace(/\s+/g, ''), password);
       sessionStorage.setItem('token',user.token);
       sessionStorage.setItem('currentUser',JSON.stringify(user.user));
       props.setToken(user.token)
@@ -25,8 +25,8 @@ const LoginForm = (props) => {
     <div className='loginForm'>
       <form className='loginInfoForm' onSubmit={handleSubmit}>
         <div className='loginForm_UserName'>
-          <label>User ID  </label>
-          <input type='text' value={username} onChange={(e) => setUsername(e.target.value.replace(/[^A-Za-z0-9]/g, ''))}/>
+          <label>User Name  </label>
+          <input type='text' value={username} onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z0-9\s]/g, ''))}/>
         </div>
         <div className='loginForm_Password'>
           <label>Password  </label>

@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import { useHistory } from 'react-router-dom';
 import IsAnswerBar from '../../components/Layout/HomePage/IsAnswersBar/IsAnswerBar'
 import QuestionsList from '../../components/Layout/HomePage/QuestionsList/QuestionsList'
 import NavBar from '../../components/Common/NavBar'
@@ -10,6 +11,7 @@ const HomePage = () => {
   const [isAnswer, setIsAnswer]=useState(false);
   const [unQuestionsSet, setUnQuestionsSet]=useState([]);
   const [anQuestionsSet, setAnQuestionsSet]=useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const loadingData = async () => {
@@ -23,6 +25,7 @@ const HomePage = () => {
         setAnQuestionsSet(sortedQuestions.filter(question => userInfo.answers.hasOwnProperty(question.id)));
         
       } catch (error) {
+        history.push('/');
         console.error('Error fetching data:', error);
       }
     };
@@ -41,7 +44,7 @@ const HomePage = () => {
       <div className='content'>
         <div className='homePageContent'>
           <IsAnswerBar isAnswer={isAnswer} setIsAnswer={setIsAnswer}/>
-          <div><h2>questions is Loading</h2></div>
+          <div><h2>Questions are loading</h2></div>
         </div>
       </div>
       </div>

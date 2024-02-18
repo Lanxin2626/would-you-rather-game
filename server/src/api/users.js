@@ -19,7 +19,7 @@ router.get('/users', async (req, res) => {
 router.post('/register', async (req, res) => {
   try {
     const { username, password, avatarURL } = req.body;
-    const newUser = await createUser({ id: username.toLowerCase(), username, password, avatarURL });
+    const newUser = await createUser({ id: username.toLowerCase().replace(/\s+/g, ''), username, password, avatarURL });
     res.status(201).json(newUser);
   } catch (error) {
     res.status(400).send(error.message);

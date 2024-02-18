@@ -78,6 +78,7 @@
     border-radius: 5px;
     color: white;
     text-transform: uppercase;
+    cursor: pointer;
 }
 .newPoll_Form .btn_Submit:hover{
     background-color: #45a049;

@@ -9,8 +9,8 @@ const LeaderBoardUser = (props) => {
         <img src={props.userInfo.avatarURL} alt='' className='image_LeaderBoard'/>
         <div className='scoreConditionCard'>
           <h5>Score: {props.userInfo.questions.length+ Object.keys(props.userInfo.answers).length}</h5>
-          <h5>Answered Questions: {props.userInfo.questions.length}</h5>
-          <h5>Created Question: {Object.keys(props.userInfo.answers).length}</h5>
+          <h5>Answered Questions: {Object.keys(props.userInfo.answers).length}</h5>
+          <h5>Created Question:{props.userInfo.questions.length}</h5>
         </div>
       </div>
     </div>

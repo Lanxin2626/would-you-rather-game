@@ -30,10 +30,10 @@ const NewPoll = () => {
         </p>
         <form className='newPoll_Form' onSubmit={handleSubmit}>
           <input type='text' className='textInput_Form' placeholder='type option one' 
-          value={optionOne} onChange={(e)=>setOptionOne(e.target.value.replace(/[^A-Za-z0-9]/g, ''))} required/>
+          value={optionOne} onChange={(e)=>setOptionOne(e.target.value.replace(/[^a-zA-Z0-9\s]/g, ''))} required/>
           <p className='or-special-design'>or</p>
           <input type='text' className='textInput_Form' placeholder='type option two' 
-          value={optionTwo} onChange={(e)=>setOptionTwo(e.target.value.replace(/[^A-Za-z0-9]/g, ''))} required/>
+          value={optionTwo} onChange={(e)=>setOptionTwo(e.target.value.replace(/[^a-zA-Z0-9\s]/g, ''))} required/>
           <input type='submit' value={'Submit'} className='btn_Submit'/>
         </form>
       </div>

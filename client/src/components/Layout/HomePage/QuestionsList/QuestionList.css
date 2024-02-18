@@ -5,3 +5,9 @@
     justify-content: center;
     align-items: center;
 }
+.questionsList.noQuestionText{
+    font-size: 30px;
+    color: #666;
+    margin-right: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+}

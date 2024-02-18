@@ -5,7 +5,14 @@ const Error_404Page = () => {
   return (
     <div>
       <NavBar/>
-      404 Not Found
+      <div className='container'>
+        <div className='content'>
+          <h3>
+          404 Not Found
+          </h3>
+        </div>
+      </div>
+      
     </div>
   )
 }

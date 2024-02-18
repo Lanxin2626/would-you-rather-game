@@ -19,7 +19,7 @@ const RegisterPage = () => {
       if(avatarURL==='')
       {
         await registerUser(username, password, avatarURL===''? originAvatar: avatarURL);
-        alert("Your Login UserID is "+ username.toLowerCase());
+        //alert("Your Login UserID is "+ username.toLowerCase().replace(/\s+/g, ''));
         history.push('/loginPage');
       }
       else{
