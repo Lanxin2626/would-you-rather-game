@@ -16,10 +16,30 @@
 .registerButton{
 border: none;
 background-color: #45a049;
-width: 5%;
+width: 5cqh;
 height: 25px;
 color: white;
 border-radius: 3px;
 cursor: pointer;
+width: 5%;
+
+}
+@media screen and (max-width: 1024px){
+    .registerButton{
+        width: 10%;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+    .registerButton{
+        width: 20%;
+    }
+
+}
+@media screen and (max-width: 450px){
+    .registerButton{
+        width: 30%;
+    }
 
 }

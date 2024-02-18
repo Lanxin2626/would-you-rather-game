@@ -19,3 +19,12 @@
 
     
   }
+  @media screen and (max-width: 600px) {
+    .btn.Logout{
+        width: 25%;
+        height: 25px;
+        padding: 0;
+    }
+
+    
+  }

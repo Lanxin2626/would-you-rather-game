@@ -24,6 +24,7 @@ const LoginForm = (props) => {
   return (
     <div className='loginForm'>
       <form className='loginInfoForm' onSubmit={handleSubmit}>
+        <div className='loginInputText'>
         <div className='loginForm_UserName'>
           <label>User Name  </label>
           <input type='text' value={username} onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z0-9\s]/g, ''))}/>
@@ -31,6 +32,7 @@ const LoginForm = (props) => {
         <div className='loginForm_Password'>
           <label>Password  </label>
           <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </div>
         </div>
         <div className='loginForm_Link'>
         <input className='loginForm_Submit'type='submit' value={'SUBMIT'}/><br></br>
