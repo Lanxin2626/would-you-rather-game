@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001';
+const baseUrl = 'http://lanxin-would-you-rather-game.online';
 
 export const getAllQuestions= async()=>{
     try {

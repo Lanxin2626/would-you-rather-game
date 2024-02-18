@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001';
+const baseUrl = 'http://lanxin-would-you-rather-game.online';
 
 export const registerUser = async (username, password, avatarURL) => {
   const response = await fetch(`${baseUrl}/api/users/register`, {
