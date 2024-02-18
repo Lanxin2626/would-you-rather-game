@@ -5,7 +5,7 @@ import './QuestionList.css'
 const QuestionslIst = (props) => {
   if(props.questionsSet.length === 0)
   {
-    return <div className='questionsList noQuestionText' style={props.style}>No more questions</div>
+    return <div className='questionsList noQuestionText' style={props.style}>No more Polls</div>
   }
 
   return (

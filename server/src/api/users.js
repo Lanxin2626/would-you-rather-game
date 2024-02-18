@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { _getUsers } = require('../utils/_DATA');
 const multer = require('multer');
 const path = require('path');
-const { createUser, validatePassword, getUserInfoById, getLeaderBoard, _changePassword } = require('../utils/_ManageUsers');
+const { createUser, validatePassword, getUserInfoById, getLeaderBoard } = require('../utils/_ManageUsers');
 
 const router = express.Router();
 
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'assets/avatars-upload'); // 保存的路径
+    cb(null, 'assets/avatars-upload'); 
   },
   filename: (req, file, cb) => {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -87,7 +87,6 @@ router.get('/getUserInfo', async (req, res) => {
       console.log(userInfo);
       res.json(userInfo);
     } catch {
-      //console.error(error);
       res.status(500).send('Internal Server Error');
     }
   });
